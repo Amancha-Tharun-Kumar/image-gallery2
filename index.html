@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image - Gall~ery</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+      }
+      .imgs {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .imgs img {
+        width: 500px;
+        height: 300px;
+        object-fit: cover;
+        padding: 5px;
+        transition: 200ms;
+        align-items: center;
+        border-radius: 30px;
+      }
+      .imgs img:hover {
+        transform: scale(0.8);
+        border-radius: 30px;
+        cursor: pointer;
+      }
+      .popup {
+        background-color: rgba(0, 0, 0, 0.567);
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+      }
+      .popup img {
+        width: 600px;
+        height: 350px;
+        border-radius: 30px;
+      }
+      .popup .icon {
+        position: absolute;
+        top: 40px;
+        right: 20px;
+        color: white;
+        cursor: pointer;
+        font-size: 66px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <h1>Image-Gallery</h1>
+      <div class="imgs">
+        <img
+          src="https://cdn.pixabay.com/photo/2018/08/29/03/57/man-3639100_640.jpg"
+          alt=""
+        />
+        <img
+          src="https://cdn.pixabay.com/photo/2019/07/23/12/39/motorcycle-4357635_640.jpg"
+          alt=""
+        />
+        <img
+          src="https://cdn.pixabay.com/photo/2018/09/26/21/26/biker-3705689_640.jpg"
+          alt=""
+        />
+        <img
+          src="https://cdn.pixabay.com/photo/2019/06/10/16/31/bmw-4264722_640.jpg"
+          alt=""
+        />
+        <img
+          src="https://cdn.pixabay.com/photo/2019/01/22/19/15/bike-3948804_640.jpg"
+          alt=""
+        />
+        <img
+          src="https://cdn.pixabay.com/photo/2019/02/17/00/24/boy-4001345_640.jpg"
+          alt=""
+        />
+        <img
+          src="https://cdn.pixabay.com/photo/2014/09/07/22/33/motorbike-438464_640.jpg"
+          alt=""
+        />
+        <img
+          src="https://media.istockphoto.com/id/1322687173/photo/man-motorcyclist-standing-at-hill-top-with-his-loaded-motorcycle-and-pristine-natural-view.jpg?s=2048x2048&w=is&k=20&c=_9uZkYslXdWGHcxN-_gQXr9YVVy5g2tStwL0gVHxxog="
+          alt=""
+        />
+        <img
+          src="https://media.istockphoto.com/id/1351640637/photo/young-man-biker-sitting-on-bike-at-mountain-top-with-mesmerizing-view-at-morning.jpg?s=612x612&w=0&k=20&c=VXmkjs2Hn5NC1ihYQiE_XyXgi0si64D4ANdyd4ovZRk="
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="popup">
+      <img
+        src="https://media.istockphoto.com/id/1702666837/photo/silhouette-of-a-motorcyclist-at-sunset-with-an-enduro-motorcycle-the-concept-of-the-romance.jpg?s=2048x2048&w=is&k=20&c=nxqX6i2I3tRs8ovlCju0sWfu_8g9gyC9rUlzFVcd8HA="
+        alt=""
+        id="popupimg"
+      />
+      <h2 class="icon" onclick="closepop()">&times</h2>
+    </div>
+
+    <script>
+      let imgage = document.querySelectorAll(".imgs img");
+      let popUpDiv = document.querySelector(".popup");
+      let popUpImg = document.getElementById("popupimg");
+
+      for (img of imgage) {
+        img.onclick = function () {
+          popUpDiv.style.display = "flex";
+          popUpImg.src = this.src;
+        };
+        function closepop() {
+          popUpDiv.style.display = "none";
+          alert("leaving......");
+        }
+      }
+    </script>
+  </body>
+</html>
